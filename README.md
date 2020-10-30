@@ -12,14 +12,16 @@ import Networker
 let reachability = Networker.shared
 ```
 
-##### Step 3. Add observer in `viewDidLoad()`       
+##### Step 3. Register and add Observer in `viewDidLoad()`       
 ``` 
 override func viewDidLoad() {
   super.viewDidLoad() 
+  
+  // registering & adding observer
   reachability.register()
   Notification.Name.didUpdateNetworkStatus.add(self,
-    selector: #selector(networkStatusChanged),
-    object: nil)
+                                               selector: #selector(networkStatusChanged),
+                                               object: nil)
 }
 
 ```
