@@ -1,6 +1,6 @@
 # Networker
 
-`LightReachability` library helps to check network status with simple 5 steps. 
+`Networker` library helps to check network status with simple 5 steps. 
 Just subscribe for network notifications, that all you will get an update when there is a change in 'Network' status. 
 
 ##### Step 1. Import library
