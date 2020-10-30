@@ -15,30 +15,31 @@ let reachability = Networker.shared
 ##### Step 3. Add observer in `viewDidLoad()`       
 ``` 
 override func viewDidLoad() {
-super.viewDidLoad() 
-reachability.register()
-Notification.Name.didUpdateNetworkStatus.add(self,
-selector: #selector(networkStatusChanged),
-object: nil)
+  super.viewDidLoad() 
+  reachability.register()
+  Notification.Name.didUpdateNetworkStatus.add(self,
+    selector: #selector(networkStatusChanged),
+    object: nil)
 }
 
 ```
 ##### Step 4. Add `networkStatusChanged` method in your `ViewController`       
 ``` 
 @objc func networkStatusChanged() {
-switch reachability.currentStatus {
-case .reachableViaWWAN, .reachableViaWiFi:
-print(" ✅ Network status 'Connected'")
-// Do your stuff here code 💻💻💻
-case .notReachable:
-print("❗️Network status 'No Internet'")
-}
+  switch reachability.currentStatus {
+    case .reachableViaWWAN, .reachableViaWiFi:
+    print(" ✅ Network status 'Connected'")
+    // Do your stuff here code 💻💻💻
+  
+    case .notReachable:
+    print("❗️Network status 'No Internet'")
+  }
 }
 ```  
 
 ##### Step 5. Finally, Remove the observer in `deinit()`   
 ```
 deinit {
-Notification.Name.didUpdateNetworkStatus.remove(self)
+  Notification.Name.didUpdateNetworkStatus.remove(self)
 }
 ```
