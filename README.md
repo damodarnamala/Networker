@@ -3,17 +3,17 @@
 Just subscribe for network notifications, that all you will get an update when there is a change in 'Network' status. 
 
 ##### Step 1. Import library
-```
+```swift
 import Networker
 ```
 
 ##### Step 2. Create share instance in `ViewController`
-```
+```swift
 let reachability = Networker.shared
 ```
 
 ##### Step 3. Add observer in `viewDidLoad()`       
-``` 
+```swift 
 override func viewDidLoad() {
   super.viewDidLoad() 
 
@@ -25,7 +25,7 @@ override func viewDidLoad() {
 
 ```
 ##### Step 4. Add `networkStatusChanged` method in your `ViewController`       
-``` 
+```swift 
 @objc func networkStatusChanged() {
   switch reachability.currentStatus {
   case .reachableViaWWAN, .reachableViaWiFi:
@@ -38,7 +38,7 @@ override func viewDidLoad() {
 ```  
 
 ##### Step 5. Finally, Remove the observer in `deinit()`   
-```
+```swift
 deinit {
   Notification.Name.didUpdateNetworkStatus.remove(self)
 }
